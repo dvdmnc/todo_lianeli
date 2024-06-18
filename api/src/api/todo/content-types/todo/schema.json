@@ -4,7 +4,8 @@
   "info": {
     "singularName": "todo",
     "pluralName": "todos",
-    "displayName": "todo"
+    "displayName": "todo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,10 +16,10 @@
       "type": "string"
     },
     "Details": {
-      "type": "blocks"
+      "type": "text"
     },
     "Date": {
-      "type": "date"
+      "type": "string"
     }
   }
 }
