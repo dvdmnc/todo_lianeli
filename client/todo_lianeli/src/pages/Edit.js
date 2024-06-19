@@ -3,6 +3,7 @@ import {React, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import * as methods from '../methods/method'
+import Form from '../components/Form'
 
 function Edit() {
     const navigate = useNavigate()
@@ -42,22 +43,7 @@ function Edit() {
       <h3>
         Edit your TODO right here :
       </h3>
-      <form>
-        <label htmlFor='title'>
-          Title :
-        </label>
-        <input type='text' id='title' onChange={(e) => setTodo({...todo,  Title:e.target.value})} value={todo.Title}  placeholder='Write the title of your todo here'/>
-        <label htmlFor='details'>
-          Details :
-        </label>
-        <textarea id='details' placeholder='Do not forget to add some details !' onChange={(e) => setTodo({...todo,  Details:e.target.value})} value={todo.Details} rows='5' cols='50' ></textarea>
-        <label htmlFor='date'>
-          Set the Date for your todo :
-        </label>
-        <input type='date' id='date' onChange={(e) => setTodo({...todo,  Date:e.target.value})} value={todo.Date} />
-        {error ? <h4>Title and Details must have a minimum of 4 characters and a Date must be chosen</h4> : null}
-        <button onClick={(e) => updateTodo(e)}>Update TODO</button>
-      </form>
+      <Form todo={todo} setTodo={setTodo} todoAction={updateTodo} error={error} action={'update'}/>
     </div>
     </>
   )
