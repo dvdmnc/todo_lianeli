@@ -7,7 +7,7 @@ body{
   background-color: #0896b5;
 }
 
-#header{
+.header{
   color: #00426d;
   background-color: #ffe665;
   width: 100vw;
@@ -19,7 +19,7 @@ body{
   font-weight:bold;
 }
 
-#create-todo{
+.input-todo{
   color: white;
   padding: 20px;
   font-family: 'Poppins';
@@ -42,6 +42,10 @@ body{
       border-radius: 5px;
       font-size: 16px;
       padding: 5px;
+    }
+
+    h4{
+      color: red;
     }
 
     button{
@@ -71,6 +75,7 @@ body{
 
 #todo-display{
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
 
@@ -84,7 +89,33 @@ body{
     .todo-header{
       display: flex;
       align-items: center;
-      justify-content: space-between;  
+      justify-content: space-between; 
+
+      h3{
+        max-width: 150px;
+        word-wrap: break-word;
+      } /* prevent title from pushing icons outside the todo and overflowing */
+
+      img{
+        margin: 5px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
     }
+
+    p{
+      max-width: 250px;
+      word-wrap: break-word;
+    } /*prevent details from overflowing the todo*/
   }
+}
+
+#edit-todo{
+  width:100vw;
+  height:80vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
 }

@@ -13,13 +13,16 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "Details": {
-      "type": "text"
+      "type": "text",
+      "required": false
     },
     "Date": {
-      "type": "string"
+      "type": "string",
+      "required": false
     }
   }
 }
