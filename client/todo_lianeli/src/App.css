@@ -80,5 +80,11 @@ body{
     padding: 10px;
     width: 250px;
     box-shadow: #00426d 3px 3px;
+
+    .todo-header{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;  
+    }
   }
 }

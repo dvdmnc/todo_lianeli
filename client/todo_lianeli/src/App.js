@@ -1,5 +1,6 @@
 import * as methods from './methods/method'
 import './App.css';
+import Delete from './images/effacer.png'
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -40,6 +41,19 @@ const[todos,setTodos]=useState([])
       fetchData()
     },[])
 
+
+    const handleDelete = async(id) => {
+      try{
+        await methods.deleteTodo(id)
+        const result = await methods.getTodos()
+        const data = await result.json()
+        setTodos(data.data)
+      }
+      catch(err){
+        alert('Unable to connect to the server to delete TODO or fetch after deletion, please check your connection or try later')
+      }
+    }
+
   return (
     <>
     <header id='header'>
@@ -69,9 +83,12 @@ const[todos,setTodos]=useState([])
     {
       todos.map((todo) => (
         <div key={todo.id} className='todo'>
-          <h3>
-            {todo.attributes.Title}
-          </h3>
+          <div className='todo-header'>
+            <h3>
+              {todo.attributes.Title}
+            </h3>
+            <img src={Delete} width={24} height={24} onClick={() => handleDelete(todo.id)}/>
+          </div>
           <p>{todo.attributes.Details}</p>
           <i>{todo.attributes.Date}</i>
         </div>
